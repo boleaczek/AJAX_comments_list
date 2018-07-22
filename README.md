@@ -31,12 +31,13 @@
 
 # Styling
 
-Class names:
-    * root - root <div>, contains: 
-        * comments_list - <ul> list containing all the comments, contains:
-            * comment - <li>, contains:
-                * author_name - <p>, name of comments author
-                * publication_date - <p>, when comment was posted
-                * commentContent - <div>, container for comments content
-        * get_more_btn - <button> rendered at the bottom
-        * author_name - <p> containing comments author name
+# Styling
+## Class names:
+* root - root <div>, contains: 
+    * comments_list - <ul> list containing all the comments, contains:
+        * comment - <li>, contains:
+        * author_name - <p>, name of comments author
+        * publication_date - <p>, when comment was posted
+        * commentContent - <div>, container for comments content
+    * get_more_btn - <button> rendered at the bottom
+    * author_name - <p> containing comments author name
