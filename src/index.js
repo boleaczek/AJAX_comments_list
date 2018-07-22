@@ -8,8 +8,11 @@ class CommentsList extends React.Component {
         super(props);
 
         this.state = {
-          comments: []
+          comments: [],
+          howManyLoaded: 0
         }
+
+        this.getComments = this.getComments.bind(this);
     }
 
     render() {
@@ -18,13 +21,13 @@ class CommentsList extends React.Component {
                 <ul className="comments_list">
                     {this.state.comments}
                 </ul>
-                <button className="get_more_btn" onClick={this.getComments()}>Load comments</button>
+                <button className="get_more_btn" onClick={() => this.getComments()}>Load comments</button>
             </div>
         );
     }
 
     async getComments() {
-        let response = await axios.get(this.props.url);
+        let response = await axios.get(this.props.url + `?loaded=${this.state.howManyLoaded}`);
         let comments = JSON.parse(response.data);
 
         let loaded = this.state.comments;
@@ -37,7 +40,8 @@ class CommentsList extends React.Component {
         }
 
         this.setState({
-            comments:loaded
+            comments:loaded,
+            howManyLoaded: loaded.length
         })
     }
 }
@@ -48,7 +52,7 @@ class Comment extends React.Component {
             <li className="comment">
                 <p className="authors_name">{this.props.authorName}</p>
                 <p className="publication_date">{this.props.publicatinDate}</p>
-                <div className="commentContent" dangerouslySetInnerHTML={this.props.commentContent}>
+                <div className="commentContent" dangerouslySetInnerHTML={{__html: this.props.commentContent}}>
                 </div>
             </li>
         );
