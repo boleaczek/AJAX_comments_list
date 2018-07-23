@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 
+"use strict";
+
 class CommentsList extends React.Component {
 
     constructor(props) {
@@ -28,15 +30,14 @@ class CommentsList extends React.Component {
 
     async getComments() {
         let response = await axios.get(this.props.url + `?loaded=${this.state.howManyLoaded}`);
-        let comments = JSON.parse(response.data);
-
+        
         let loaded = this.state.comments;
-        for(comment of comments)
+        for(let comment of response.data)
         {
             loaded.push(<Comment 
                 authorName={comment.authorName}
-                publicatinDate={comment.publicatinDate}
-                commentContent={comment.content} />);
+                publicatinDate={comment.publicationDate}
+                commentContent={comment.commentContent} />);
         }
 
         this.setState({
@@ -59,4 +60,4 @@ class Comment extends React.Component {
     }
 }
 
-ReactDOM.render(<CommentsList url="urlwillgohere" howManyPerClick={5}/>, document.getElementById("index"));
+ReactDOM.render(<CommentsList url="http://127.0.0.1:5000/getc"/>, document.getElementById("index"));
