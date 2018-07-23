@@ -1,11 +1,10 @@
 # How to build(requires npm)
-
-        1.cd into projects directory.
-        2.Run 'npm init'.
-        3.Run 'npm i webpack webpack-cli -D'.
-        4.Run 'npm i react react-dom -S'.
-        5.Run 'npm i babel-core babel-loader babel-preset-env babel-preset-react -D'.
-        6.Create webpack.config.js:
+1.cd into projects directory.
+2.Run 'npm init'.
+3.Run 'npm i webpack webpack-cli -D'.
+4.Run 'npm i react react-dom -S'.
+5.Run 'npm i babel-core babel-loader babel-preset-env babel-preset-react -D'.
+6.Create webpack.config.js:
 ```
   module.exports = {
   module: {
@@ -21,23 +20,43 @@
   }
 };
 ```
-        7.Create .babelrc:
+7.Create .babelrc:
 ```
 {
     "presets": ["env", "react"]
 }
 ```
-        8.Run 'npx webpack' to build.
+8.Run 'npx webpack' to build.
 
 # Styling
-
-# Styling
-## Class names:
+## CSS class names:
 * root - root <div>, contains: 
-    * comments_list - <ul> list containing all the comments, contains:
-        * comment - <li>, contains:
-        * author_name - <p>, name of comments author
-        * publication_date - <p>, when comment was posted
-        * commentContent - <div>, container for comments content
-    * get_more_btn - <button> rendered at the bottom
-    * author_name - <p> containing comments author name
+* comments_list - <ul> of all the comments
+* comment - <li> child of comments_list, contains:
+  * author_name - <p>, name of comments author
+  * publication_date - <p>, when comment was posted
+  * commentContent - <div>, container for comments content
+* get_more_btn - <button> rendered at the bottom
+* author_name - <p> containing comments author name
+
+## Example HTML:
+```
+<div class="root">
+    <ul class="comments_list">
+      <li class="comment">
+        <p class="authors_name">John</p>
+        <p class="publication_date">25.09.1995</p>
+        <div class="commentContent">
+          <p>Hello</p>
+        </div>
+      </li>
+      <li class="comment">
+        ...
+      </li>
+      <li class="comment">
+        ...
+      </li>
+      </ul>
+    <button class="get_more_btn">Load comments</button>
+</div>
+```
