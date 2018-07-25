@@ -1,3 +1,61 @@
+# Including in the project
+App will be rendered in the element with 'comment_app' id.
+
+# Styling
+## CSS class names:
+* root: root <div>, contains: 
+* comments_list: <ul> of all the comments
+* comment: <li> child of comments_list, contains:
+  * author_name: <p>, name of comments author
+  * publication_date: <p>, when comment was posted
+  * commentContent: <div>, container for comments content
+* get_more_btn: <button> rendered at the bottom
+* author_name: <p> containing comments author name
+* loading_icon: svg rendered when app is waiting for response from the server
+
+## Example HTML:
+```
+<div class="root">
+    <ul class="comments_list">
+      <li class="comment">
+        <p class="authors_name">John</p>
+        <p class="publication_date">25.09.1995</p>
+        <div class="commentContent">
+          <p>Hello</p>
+        </div>
+      </li>
+      <li class="comment">
+        ...
+      </li>
+      <li class="comment">
+        ...
+      </li>
+      </ul>
+    <button class="get_more_btn">Load comments</button>
+</div>
+```
+## Changing loading icon
+Loading icon is located in /assets/ as load_icon.svg. Replace the file with any other svg file to change it.
+
+# Communication with the server
+## Requests
+App will be sending requests to <yourserveraddress>/<commentendpoint>, this can be set in the app element in html, for example:
+```
+<div id="comments_app" data-url="http://127.0.0.1:5000/getc" data-loading-icon="test()"></div>
+```
+'loaded' querry parameter will be provided, it contains number of elements already loaded. So, if one request was sent, and 5 coments were sent in response, loaded will be equal to 5.
+
+## Responses
+Example of expected response:
+```
+{
+  "comments":[
+      {"author":"Bart","content":"<p>Hey</p>","publicationDate":"13.03.2018"}
+    ],
+  "isLast":false
+}
+```
+
 # How to build(requires npm)
 1.cd into projects directory.
 2.Run 'npm init'.
@@ -27,36 +85,3 @@
 }
 ```
 8.Run 'npx webpack' to build.
-
-# Styling
-## CSS class names:
-* root - root <div>, contains: 
-* comments_list - <ul> of all the comments
-* comment - <li> child of comments_list, contains:
-  * author_name - <p>, name of comments author
-  * publication_date - <p>, when comment was posted
-  * commentContent - <div>, container for comments content
-* get_more_btn - <button> rendered at the bottom
-* author_name - <p> containing comments author name
-
-## Example HTML:
-```
-<div class="root">
-    <ul class="comments_list">
-      <li class="comment">
-        <p class="authors_name">John</p>
-        <p class="publication_date">25.09.1995</p>
-        <div class="commentContent">
-          <p>Hello</p>
-        </div>
-      </li>
-      <li class="comment">
-        ...
-      </li>
-      <li class="comment">
-        ...
-      </li>
-      </ul>
-    <button class="get_more_btn">Load comments</button>
-</div>
-```
