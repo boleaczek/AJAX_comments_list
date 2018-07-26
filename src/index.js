@@ -21,7 +21,7 @@ class CommentsList extends React.Component {
     render() {
         let button;
         if(this.state.waitingForResponse) {
-            button = <ReactSVG className="loadingIcon" path="./assets/load_icon.svg" />;
+            button = <ReactSVG className="loadingIcon" path={this.props.loadingIconPath} />;
         }
         else if(this.state.noMoreLeft) {
             button = null;
@@ -85,4 +85,5 @@ class Comment extends React.Component {
 let comments_app = document.getElementById("comments_app")
 
 ReactDOM.render(<CommentsList 
-    url={comments_app.dataset.url} />, comments_app);
+    url={comments_app.dataset.url} 
+    loadingIconPath={comments_app.dataset.loadingIconPath}/>, comments_app);

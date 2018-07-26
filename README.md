@@ -35,13 +35,13 @@ App will be rendered in the element with 'comment_app' id.
 </div>
 ```
 ## Changing loading icon
-Loading icon is located in /assets/ as load_icon.svg. Replace the file with any other svg file to change it.
+Set loading icon by setting data-loading-icon-path attribute in root of the app.
 
 # Communication with the server
 ## Requests
-App will be sending requests to <yourserveraddress>/<commentendpoint>, this can be set in the app element in html, for example:
+App will be sending requests to <host>/<commentendpoint>, this can be set in the app element in html, for example:
 ```
-<div id="comments_app" data-url="http://127.0.0.1:5000/getc" data-loading-icon="test()"></div>
+<div id="comments_app" data-url="http://127.0.0.1:5000/getc" data-loading-icon-path="./assets/load_icon.svg"></div>
 ```
 'loaded' querry parameter will be provided, it contains number of elements already loaded. So, if one request was sent, and 5 coments were sent in response, loaded will be equal to 5.
 
@@ -57,12 +57,12 @@ Example of expected response:
 ```
 
 # How to build(requires npm)
-1.cd into projects directory.
-2.Run 'npm init'.
-3.Run 'npm i webpack webpack-cli -D'.
-4.Run 'npm i react react-dom -S'.
-5.Run 'npm i babel-core babel-loader babel-preset-env babel-preset-react -D'.
-6.Create webpack.config.js:
+  1.cd into projects directory.
+  2.Run 'npm init'.
+  3.Run 'npm i webpack webpack-cli -D'.
+  4.Run 'npm i react react-dom -S'.
+  5.Run 'npm i babel-core babel-loader babel-preset-env babel-preset-react -D'.
+  6.Create webpack.config.js:
 ```
   module.exports = {
   module: {
@@ -78,10 +78,10 @@ Example of expected response:
   }
 };
 ```
-7.Create .babelrc:
+  7.Create .babelrc:
 ```
 {
     "presets": ["env", "react"]
 }
 ```
-8.Run 'npx webpack' to build.
+  8.Run 'npx webpack' to build.
