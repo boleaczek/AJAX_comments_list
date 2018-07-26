@@ -3,14 +3,14 @@ App will be rendered in the element with 'comment_app' id.
 
 # Styling
 ## CSS class names:
-* root: root <div>, contains: 
-* comments_list: <ul> of all the comments
-* comment: <li> child of comments_list, contains:
-  * author_name: <p>, name of comments author
-  * publication_date: <p>, when comment was posted
-  * commentContent: <div>, container for comments content
-* get_more_btn: <button> rendered at the bottom
-* author_name: <p> containing comments author name
+* root: root of the app, &lt;div> 
+* comments_list: &lt;ul> of all the comments
+* comment: &lt;li> child of comments_list, contains:
+  * author_name: &lt;p>, name of comments author
+  * publication_date: &lt;p>, when comment was posted
+  * commentContent: &lt;div>, container for comments content
+* get_more_btn: &lt;button> rendered at the bottom
+* author_name: &lt;p> containing comments author name
 * loading_icon: svg rendered when app is waiting for response from the server
 
 ## Example HTML:
