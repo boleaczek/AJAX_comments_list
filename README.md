@@ -57,12 +57,12 @@ Example of expected response:
 ```
 
 # How to build(requires npm)
-  1.cd into projects directory.
-  2.Run 'npm init'.
-  3.Run 'npm i webpack webpack-cli -D'.
-  4.Run 'npm i react react-dom -S'.
-  5.Run 'npm i babel-core babel-loader babel-preset-env babel-preset-react -D'.
-  6.Create webpack.config.js:
+1. cd into projects directory.
+2. Run 'npm init'.
+3. Run 'npm i webpack webpack-cli -D'.
+4. Run 'npm i react react-dom -S'.
+5. Run 'npm i babel-core babel-loader babel-preset-env babel-preset-react -D'.
+6. Create webpack.config.js:
 ```
   module.exports = {
   module: {
@@ -78,10 +78,10 @@ Example of expected response:
   }
 };
 ```
-  7.Create .babelrc:
+7. Create .babelrc:
 ```
 {
     "presets": ["env", "react"]
 }
 ```
-  8.Run 'npx webpack' to build.
+8. Run 'npx webpack' to build.
